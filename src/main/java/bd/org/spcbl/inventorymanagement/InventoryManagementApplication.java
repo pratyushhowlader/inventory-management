@@ -14,7 +14,5 @@ public class InventoryManagementApplication {
 
     }
 
-   public void fun(){
-       System.out.println("This is Test");
-   }
+
 }
