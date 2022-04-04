@@ -12,8 +12,10 @@ public class Employee {
 
     @Column(name = "name")
     String name;
-    @Column(name= "address")
-    String address;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_address",referencedColumnName = "id")
+    Address address;
 
     public long getId() {
         return id;
@@ -31,11 +33,11 @@ public class Employee {
         this.name = name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(Address address) {
         this.address = address;
     }
 

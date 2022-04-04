@@ -15,6 +15,9 @@ public class Address {
     @Column(name="country")
     private String country;
 
+    @OneToOne(mappedBy = "address")
+    private Employee employee;
+
     public int getId() {
         return id;
     }
