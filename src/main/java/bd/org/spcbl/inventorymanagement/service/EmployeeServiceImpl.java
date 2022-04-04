@@ -5,6 +5,7 @@ import bd.org.spcbl.inventorymanagement.repository.EmployeeRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
     private final EmployeeRepository employeeRepository;
@@ -15,22 +16,30 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee save(Employee employee) {
-        return null;
+        return this.employeeRepository.save(employee);
     }
 
     @Override
-    public Employee update(Long id, Employee employee) {
-        return null;
+    public Employee update(Employee employee) {
+        return this.employeeRepository.save(employee);
     }
 
     @Override
     public void delete(Long id) {
-
+        // Employee employee = this.employeeRepository.getById(id);
+        Employee employee = this.employeeRepository.findById(id).get();
+        if (employee != null) {
+            this.employeeRepository.delete(employee);
+        }
     }
 
     @Override
     public Employee get(Long id) {
-        return null;
+        //Employee employee = this.employeeRepository.getById(id);
+        Employee employee = this.employeeRepository.findById(id).get();
+
+        return employee;
+
     }
 
     @Override
